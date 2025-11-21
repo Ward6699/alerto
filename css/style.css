@@ -1,0 +1,487 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Archivo Black', sans-serif;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.registration-panel {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  overflow: hidden;
+  min-height: 500px;
+  max-height: 80vh;
+}
+
+/* Left Section */
+.left-section {
+  flex: 1;
+  background: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.alerto-element {
+  width: 400px;
+  margin-bottom: 20px;
+  margin-left: 0;
+  position: relative;
+  top: 10px;
+}
+
+.alert-elements {
+  width: 450px;
+  max-width: none;
+  margin-left: 0;
+  position: relative;
+  top: -180px;
+}
+
+/* Right Section */
+.right-section {
+  flex: 1;
+  padding: 30px 40px;
+  background: white;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.right-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 70% 80%, rgba(255, 0, 0, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 60% 70%, rgba(255, 0, 0, 0.02) 0%, transparent 40%),
+    radial-gradient(circle at 50% 60%, rgba(255, 0, 0, 0.01) 0%, transparent 30%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.right-section::after {
+  content: 'ALERTO';
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.05);
+  transform: rotate(-15deg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.planet-bg {
+  position: absolute;
+  bottom: 10px;
+  right: -60px;
+  width: 500px;
+  height: 400px;
+  object-fit: cover;
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.register-title {
+  color: #000;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-align: left;
+  z-index: 1;
+  position: relative;
+}
+
+.registration-form {
+  position: relative;
+  z-index: 1;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  color: #000;
+  font-size: 0.9rem;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Archivo Black', sans-serif;
+  background: white;
+  transition: border-color 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff0000;
+}
+
+/* Hide browser's default password toggle icon */
+.form-group input[type="password"]::-ms-reveal,
+.form-group input[type="password"]::-ms-clear {
+  display: none;
+}
+
+.form-group input[type="password"]::-webkit-credentials-auto-fill-button {
+  display: none;
+}
+
+/* Password Group - FIXED */
+.password-group {
+  position: relative;
+}
+
+/* Add padding to password inputs to make room for eye icon */
+.password-group input {
+  padding-right: 50px !important;
+}
+
+/* Toggle Password Icon - FIXED */
+.toggle-password {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: 12px; /* Offset for label height */
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  user-select: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 100; /* High z-index to be above everything */
+  pointer-events: auto; /* Ensure it's clickable */
+}
+
+.toggle-password:hover {
+  opacity: 0.7;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.toggle-password:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+/* Register/Submit Button */
+.register-btn {
+  width: 100%;
+  padding: 18px;
+  background: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.register-btn:hover {
+  background: #e60000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
+.register-btn:active {
+  transform: translateY(0);
+}
+
+/* Forgot password link */
+.forgot-password-link {
+  text-align: center;
+  margin-top: 15px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Login link */
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  z-index: 2;
+  position: relative;
+}
+
+.login-link span {
+  color: #000;
+  font-size: 0.9rem;
+}
+
+.login-text {
+  color: #4a90e2;
+  text-decoration: underline;
+  font-weight: 900;
+  margin-left: 5px;
+  transition: color 0.3s ease;
+}
+
+.login-text:hover {
+  color: #357abd;
+}
+
+/* Sign In Button Style (for forgot.php page) */
+.signin-button {
+  display: inline-block;
+  color: #4a90e2;
+  text-decoration: underline;
+  font-weight: 900;
+  margin-left: 5px;
+  transition: color 0.3s ease;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.signin-button:hover {
+  color: #357abd;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+  .registration-panel {
+    max-height: none;
+  }
+
+  .planet-bg {
+    width: 400px;
+    height: 350px;
+    right: -50px;
+    opacity: 0.5;
+  }
+
+  .right-section {
+    padding: 25px 30px;
+  }
+
+  .register-title {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet and small screens */
+@media (max-width: 768px) {
+  body {
+    padding: 5px;
+  }
+  
+  .container {
+    max-width: 100%;
+  }
+  
+  .registration-panel {
+    flex-direction: column;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .left-section {
+    padding: 20px 15px;
+    min-height: 200px;
+  }
+
+  .right-section {
+    padding: 30px 20px;
+    min-height: 400px;
+  }
+
+  .alerto-element {
+    width: 250px;
+    margin-left: 0;
+    top: 0;
+  }
+
+  .alert-elements {
+    width: 320px;
+    max-width: none;
+    margin-left: 0;
+    position: relative;
+    top: -120px;
+  }
+
+  /* Make planet background less intrusive on mobile */
+  .planet-bg {
+    width: 300px;
+    height: 250px;
+    right: -80px;
+    bottom: -20px;
+    opacity: 0.3;
+  }
+
+  .right-section::after {
+    font-size: 2rem;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.7;
+  }
+
+  .register-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+
+  .form-group input {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .password-group input {
+    padding-right: 45px !important;
+  }
+
+  .toggle-password {
+    width: 22px;
+    height: 22px;
+    right: 12px;
+  }
+
+  .register-btn {
+    padding: 15px;
+    font-size: 1rem;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+
+  .registration-panel {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .left-section {
+    padding: 15px;
+    min-height: 150px;
+  }
+
+  .right-section {
+    padding: 25px 15px;
+  }
+
+  .alerto-element {
+    width: 200px;
+  }
+
+  .alert-elements {
+    width: 260px;
+    top: -100px;
+  }
+
+  /* Hide planet on very small screens to avoid clutter */
+  .planet-bg {
+    display: none;
+  }
+
+  .right-section::after {
+    font-size: 1.5rem;
+  }
+
+  .register-title {
+    font-size: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+  }
+
+  .form-group input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .password-group input {
+    padding-right: 40px !important;
+  }
+
+  .toggle-password {
+    width: 20px;
+    height: 20px;
+    right: 10px;
+  }
+
+  .register-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+    margin-top: 15px;
+  }
+
+  .login-link {
+    margin-top: 15px;
+  }
+
+  .login-link span,
+  .login-text,
+  .signin-button {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 360px) {
+  .right-section {
+    padding: 20px 12px;
+  }
+
+  .alerto-element {
+    width: 180px;
+  }
+
+  .alert-elements {
+    width: 220px;
+    top: -80px;
+  }
+
+  .register-title {
+    font-size: 1.3rem;
+  }
+}
